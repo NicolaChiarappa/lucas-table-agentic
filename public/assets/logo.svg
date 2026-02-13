@@ -1,0 +1,17 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4096 2160" width="4096" height="2160">
+	<style>
+		tspan { white-space:pre } 
+		.t0 { font-size: 150px;fill: #000000;font-weight: 400;font-family: "Allison-Regular", "Allison" } 
+		.t1 { font-size: 755px;fill: #000000;font-weight: 400;font-family: "Allison-Regular", "Allison" } 
+	</style>
+	<g id="Layer 1">
+		<text id="Luca's" style="transform: matrix(5.034,0,0,5.034,1300,453.688)">
+			<tspan x="0" y="77.5" class="t0">L</tspan><tspan  y="77.5" class="t0">u</tspan><tspan  y="77.5" class="t0">c</tspan><tspan  y="77.5" class="t0">a</tspan><tspan  y="77.5" class="t0">'</tspan><tspan  y="77.5" class="t0">s</tspan><tspan  y="77.5" class="t0">
+</tspan>
+		</text>
+		<text id="Table" transform="translate(1498,986)">
+			<tspan x="0" y="390.4" class="t1">T</tspan><tspan  y="390.4" class="t1">a</tspan><tspan  y="390.4" class="t1">b</tspan><tspan  y="390.4" class="t1">l</tspan><tspan  y="390.4" class="t1">e</tspan><tspan  y="390.4" class="t1">
+</tspan>
+		</text>
+	</g>
+</svg>
