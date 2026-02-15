@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "../styles/index.css";
 import seoData from "../data/seo.json";
 
@@ -41,10 +42,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
+      <head>
+        <link rel="icon" href="/assets/logo.svg" sizes="any" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

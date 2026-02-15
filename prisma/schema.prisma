@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String @id @default(cuid())
+  name           String
+  email          String @unique
+  hashedPassword String
+}
+
+model MenuCategory {
+  id        String     @id @default(cuid())
+  title     String
+  price     Int
+  sortOrder Int        @default(0)
+  items     MenuItem[]
+}
+
+model MenuItem {
+  id         String       @id @default(cuid())
+  course     String
+  dish       String
+  sortOrder  Int          @default(0)
+  categoryId String
+  category   MenuCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id       String  @id @default(cuid())
+  name     String
+  rating   Int
+  comment  String
+  date     String
+  approved Boolean @default(false)
+}
+
+model SiteImage {
+  id        String @id @default(cuid())
+  filename  String
+  path      String
+  altText   String @default("")
+  section   String @default("general")
+  sortOrder Int    @default(0)
+}

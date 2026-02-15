@@ -6,11 +6,11 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+.public-site {
     font-family: 'Montserrat', sans-serif;
 }
 
-p {
+.public-site p {
     font-family: 'Neuton', serif;
     font-style: italic;
     font-weight: lighter;
@@ -18,85 +18,69 @@ p {
     color: #e5e7eb;
 }
 
-h1,
-h2,
-h3 {
-
+.public-site h1,
+.public-site h2,
+.public-site h3 {
     font-weight: bolder;
     color: #e5e7eb
 }
 
-h1 {
+.public-site h1 {
     font-family: 'Allison', serif;
     font-size: xxx-large;
 }
 
-h2 {
+.public-site h2 {
     font-size: xx-large;
 }
 
-h3 {
+.public-site h3 {
     font-size: x-large;
 }
 
-p {
+.public-site p {
     font-size: large;
 }
 
-span {
+.public-site span {
     font-size: medium;
-    /* Fixed 'normal' to 'medium' which is standard or specific rem */
 }
 
 @media (min-width: 1024px) {
-    h1 {
+    .public-site h1 {
         font-size: 5rem;
     }
 
-    h2 {
+    .public-site h2 {
         font-size: 3.5rem;
     }
 
-    h3 {
+    .public-site h3 {
         font-size: 2.5rem;
     }
 
-    p {
+    .public-site p {
         font-size: 1.5rem;
     }
 
-    span {
+    .public-site span {
         font-size: 1.25rem;
     }
 }
 
 .volto-background {
-    /* 1. La facciamo fluttuare a destra */
     float: right;
-
-
-
     height: auto;
-
-    /* 3. Definiamo la forma per il testo */
     shape-outside: url('../public/assets/Subject_1.png');
     shape-image-threshold: 0.1;
     shape-margin: 40px;
-
-    /* 4. Effetto estetico "Background" */
     opacity: 1;
-    /* Increased opacity for better visibility */
-    /* filter: grayscale(20%) brightness(0.8); */
     pointer-events: none;
-    /* Impedisce che l'immagine sia cliccabile/trascinabile */
-
-    /* 5. Posizionamento per farla uscire un po' dai bordi se vuoi */
     margin-right: -10%;
     margin-top: -5%;
 }
 
 .testo-biografia {
-    /* max-width: 800px; */
     position: relative;
     z-index: 20;
 }

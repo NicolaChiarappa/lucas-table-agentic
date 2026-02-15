@@ -12,7 +12,7 @@ import { Footer } from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className='min-h-screen bg-[#0d3b2e] relative'>
+    <div className='public-site min-h-screen bg-[#0d3b2e] relative'>
       <AvailabilityBadge />
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50">
         <Logo className="w-50 md:w-70 text-white" />
