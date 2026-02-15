@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "prisma generate --schema prisma/schema.local.prisma && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:push:local": "prisma db push --schema prisma/schema.local.prisma",
+    "db:push:prod": "prisma db push --schema prisma/schema.prisma",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -73,7 +76,7 @@
     "vaul": "^1.1.2"
   },
   "prisma": {
-    "seed": "npx tsx prisma/seed.ts"
+    "seed": "npx tsx prisma/seed.mts"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
