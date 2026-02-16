@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description: seoData.description,
   keywords: seoData.keywords,
   authors: [{ name: seoData.author }],
+  icons: {
+    icon: "/assets/lucas_logo_small.webp",
+  },
   openGraph: {
     title: seoData.og.title,
     description: seoData.og.description,
@@ -43,7 +46,6 @@ export default function RootLayout({
   return (
     <html lang="it">
       <head>
-        <link rel="icon" href="/assets/logo.svg" sizes="any" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
