@@ -1,49 +1,50 @@
 "use client";
 import { useState } from "react";
 import { X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 export function AvailabilityBadge() {
     const [isVisible, setIsVisible] = useState(true);
-
-    if (!isVisible) return null;
+    const reduce = useReducedMotion();
 
     return (
         <AnimatePresence>
             {isVisible && (
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                <motion.aside
+                    initial={reduce ? false : { opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    className="fixed bottom-6 right-6 z-40 flex flex-col gap-1.5 bg-[#0a2e24]/90 backdrop-blur-md px-5 py-4 rounded-2xl border border-white/10 text-white shadow-2xl"
+                    exit={{ opacity: 0, y: 16 }}
+                    transition={{ delay: reduce ? 0 : 1.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="fixed bottom-5 left-5 z-30"
+                    aria-label="Zone servite"
                 >
-                    <button
-                        onClick={() => setIsVisible(false)}
-                        className="absolute -top-2 -left-2 bg-white text-[#0a2e24] rounded-full p-1 hover:bg-gray-200 transition-colors shadow-md"
-                        aria-label="Close"
-                    >
-                        <X size={14} />
-                    </button>
+                    <div className="relative flex items-center gap-3 rounded-full border border-ls-gold/30 bg-ls-green-night/85 py-2 pl-4 pr-5 backdrop-blur-md">
+                        <button
+                            onClick={() => setIsVisible(false)}
+                            className="absolute -right-2 -top-2 grid h-5 w-5 place-items-center rounded-full bg-ls-gold text-ls-green-night transition-colors hover:bg-ls-gold-bright"
+                            aria-label="Nascondi"
+                        >
+                            <X size={11} strokeWidth={2.5} />
+                        </button>
 
-                    <span className="text-xs font-medium text-white/70">Disponibile in</span>
-                    <div className="flex items-center gap-3">
-                        <span className="text-2xl leading-none">🇨🇭</span>
-                        <div className="flex flex-col">
+                        <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ls-gold opacity-60" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-ls-gold" />
+                        </span>
 
-                            <span className="text-sm font-bold">Svizzera</span>
+                        <div className="leading-tight">
+                            <div
+                                className="text-ls-gold"
+                                style={{ fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase" }}
+                            >
+                                Disponibile in
+                            </div>
+                            <div className="text-[0.82rem] font-medium text-ls-ivory">
+                                Svizzera · Nord Italia
+                            </div>
                         </div>
                     </div>
-
-                    <div className="w-full h-px bg-white/10 my-0.5" />
-
-                    <div className="flex items-center gap-3">
-                        <span className="text-2xl leading-none">🇮🇹</span>
-                        <div className="flex flex-col">
-
-                            <span className="text-sm font-bold">Nord Italia</span>
-                        </div>
-                    </div>
-                </motion.div>
+                </motion.aside>
             )}
         </AnimatePresence>
     );

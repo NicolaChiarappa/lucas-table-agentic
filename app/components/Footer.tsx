@@ -1,81 +1,97 @@
 "use client";
 import { Mail, Phone, Instagram } from "lucide-react";
+import { Logo } from "./Logo";
+
+const EXPLORE = [
+    { label: "Chi sono", href: "#info" },
+    { label: "Le esperienze", href: "#proposals" },
+    { label: "I menù", href: "#menu" },
+    { label: "Le voci", href: "#reviews" },
+    { label: "Prenota", href: "#contact" },
+];
 
 export function Footer() {
-    return (
-        <footer className="bg-[#0b2d24] text-white py-12 border-t border-white/10">
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+    const year = new Date().getFullYear();
 
+    return (
+        <footer className="border-t border-ls-line bg-ls-green-night text-ls-ivory">
+            {/* Commiato */}
+            <div className="mx-auto max-w-6xl px-6 pb-12 pt-[clamp(3.5rem,2.5rem+4vw,5.5rem)] text-center">
+                <Logo className="mx-auto h-12 w-auto text-ls-ivory" />
+                <p className="prose-measure mx-auto mt-6 text-ls-ivory-dim">
+                    Ovunque sia la vostra tavola, porto io il ristorante. Resta solo da
+                    scegliere la sera.
+                </p>
+                <a
+                    href="#contact"
+                    className="mt-7 inline-flex items-center gap-2 rounded-full border border-ls-gold/55 px-6 py-3 text-[0.8rem] font-medium uppercase tracking-[0.18em] text-ls-gold transition-colors duration-300 hover:bg-ls-gold hover:text-ls-green-night"
+                >
+                    Prenota la tua serata
+                </a>
+            </div>
+
+            <div className="mx-auto grid max-w-6xl gap-10 border-t border-ls-line px-6 py-12 sm:grid-cols-3">
                 {/* Contatti */}
-                <div className="space-y-6">
-                    <h3 className="text-2xl   text-[#c5a059]">Contatti</h3>
-                    <div className="space-y-4">
-                        <a href="mailto:lucastablee@gmail.com" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
-                            <Mail className="w-5 h-5" />
-                            <span>lucastablee@gmail.com</span>
+                <div>
+                    <h3 className="ls-label mb-5">Contatti</h3>
+                    <div className="space-y-3">
+                        <a href="mailto:lucastablee@gmail.com" className="flex items-center gap-3 text-ls-ivory-dim transition-colors hover:text-ls-gold">
+                            <Mail className="h-4 w-4 shrink-0 text-ls-gold" />
+                            <span className="text-[0.95rem]">lucastablee@gmail.com</span>
                         </a>
-                        <a href="tel:+41762421754" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
-                            <Phone className="w-5 h-5" />
-                            <span>+41 76 242 17 54</span>
+                        <a href="tel:+41762421754" className="flex items-center gap-3 text-ls-ivory-dim transition-colors hover:text-ls-gold">
+                            <Phone className="h-4 w-4 shrink-0 text-ls-gold" />
+                            <span className="text-[0.95rem]">+41 76 242 17 54</span>
                         </a>
                     </div>
                 </div>
 
-                {/* Mappa del Sito */}
-                <div className="space-y-6">
-                    <h3 className="text-2xl   text-[#c5a059]">Esplora</h3>
-                    <ul className="space-y-3">
-                        <li><a href="#info" className="text-gray-300 hover:text-white transition-colors">Chi sono</a></li>
-                        <li><a href="#proposals" className="text-gray-300 hover:text-white transition-colors">Proposte</a></li>
-                        <li><a href="#menu" className="text-gray-300 hover:text-white transition-colors">Menu</a></li>
-                        <li><a href="#reviews" className="text-gray-300 hover:text-white transition-colors">Recensioni</a></li>
-                        <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contatti</a></li>
+                {/* Esplora */}
+                <div>
+                    <h3 className="ls-label mb-5">Esplora</h3>
+                    <ul className="space-y-2.5">
+                        {EXPLORE.map((item) => (
+                            <li key={item.href}>
+                                <a href={item.href} className="text-[0.95rem] text-ls-ivory-dim transition-colors hover:text-ls-gold">
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
 
                 {/* Social */}
-                <div className="space-y-6">
-                    <h3 className="text-2xl   text-[#c5a059]">Social</h3>
-                    <div className="flex gap-4">
+                <div>
+                    <h3 className="ls-label mb-5">Social</h3>
+                    <div className="flex gap-3">
                         <a
                             href="https://www.instagram.com/lucas.tables?igsh=MTVrYnFzZnlvbDV5MQ%3D%3D&utm_source=qr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-colors"
-                            aria-label="Instagram"
+                            className="grid h-11 w-11 place-items-center rounded-full border border-ls-line text-ls-ivory transition-colors duration-300 hover:border-ls-gold hover:text-ls-gold"
+                            aria-label="Instagram di Lucas Table"
                         >
-                            <Instagram className="w-6 h-6" />
+                            <Instagram className="h-5 w-5" />
                         </a>
                         <a
                             href="https://www.tiktok.com/@lucas_tables?_r=1&_t=ZN-93mKa9tEQJq"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-colors"
-                            aria-label="TikTok"
+                            className="grid h-11 w-11 place-items-center rounded-full border border-ls-line text-ls-ivory transition-colors duration-300 hover:border-ls-gold hover:text-ls-gold"
+                            aria-label="TikTok di Lucas Table"
                         >
-                            {/* TikTok Icon SVG since it might not be in the current lucide-react version or just to be safe */}
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="w-6 h-6"
-                            >
-                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden="true">
+                                <path d="M16.5 3a5.5 5.5 0 0 0 4.5 4.8v3.05a8.5 8.5 0 0 1-4.5-1.36v6.26A6.25 6.25 0 1 1 9.4 9.6v3.2a3.05 3.05 0 1 0 2.1 2.9V3h5z" />
                             </svg>
                         </a>
                     </div>
                 </div>
-
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
-                <p>&copy; {new Date().getFullYear()} Lucas Table. Tutti i diritti riservati.</p>
+            <div className="mx-auto max-w-6xl border-t border-ls-line px-6 py-7 text-center">
+                <p className="m-0 text-[0.82rem] text-ls-ivory/45">
+                    © {year} Lucas Table. Tutti i diritti riservati.
+                </p>
             </div>
         </footer>
     );

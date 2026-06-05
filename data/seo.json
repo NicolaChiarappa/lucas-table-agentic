@@ -1,13 +1,19 @@
 {
-    "title": "Lucas Table - Private Chef | Alta Cucina a Domicilio in Svizzera e Nord Italia",
-    "description": "Vivi un'esperienza culinaria esclusiva con Lucas Table, Private Chef in Svizzera e Nord Italia. Cene private, eventi di lusso e menu personalizzati direttamente a casa tua.",
-    "keywords": "private chef svizzera, private chef ticino, cuoco a domicilio lugano, cena privata lusso, private dining switzerland, alta cucina a domicilio, chef privato, lucas table, nord italia",
+    "title": "Private Chef a Domicilio in Ticino e Lombardia | Lucas Table",
+    "description": "Vivi un'esperienza culinaria esclusiva con Lucas Table, Private Chef a domicilio in Ticino, Lombardia e Svizzera. Cene private, eventi di lusso e menu personalizzati.",
+    "keywords": "private chef svizzera, private chef ticino, private chef lombardia, cuoco a domicilio lugano, cena privata milano, private dining switzerland, alta cucina a domicilio, chef privato, lucas table",
     "author": "Lucas Table",
     "og": {
-        "title": "Lucas Table - Private Chef | Alta Cucina a Domicilio",
-        "description": "L'eccellenza dell'alta ristorazione nel comfort della tua casa. Scopri i menu esclusivi di Lucas Table per le tue occasioni speciali in Svizzera e Nord Italia.",
+        "title": "Private Chef a Domicilio in Ticino e Lombardia | Lucas Table",
+        "description": "L'eccellenza dell'alta ristorazione nel comfort della tua casa. Scopri i menu esclusivi di Lucas Table per le tue occasioni speciali.",
         "type": "website",
         "locale": "it_CH",
+        "image": "/assets/lucas_logo_large.webp"
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Private Chef a Domicilio in Ticino e Lombardia | Lucas Table",
+        "description": "L'eccellenza dell'alta ristorazione nel comfort della tua casa con Lucas Table.",
         "image": "/assets/lucas_logo_large.webp"
     }
 }

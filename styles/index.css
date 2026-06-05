@@ -2,85 +2,217 @@
 @import './tailwind.css';
 @import './theme.css';
 
-html {
-    scroll-behavior: smooth;
+/* ============================================================
+   LUCAS TABLE — Sistema di design del sito pubblico
+   "Una sola sera continua": il verde profondo è la stanza buia,
+   l'oro è la luce di candela, la fotografia è l'unica luce viva.
+   ============================================================ */
+
+:root {
+  /* --- Verdi: la sera --- */
+  --ls-green: #0d3b2e;        /* superficie base */
+  --ls-green-deep: #0a2e24;   /* pozze più profonde */
+  --ls-green-night: #07211a;  /* footer, contrasti */
+  --ls-green-lift: #114636;   /* superfici sollevate (hover/card) */
+
+  /* --- Oro: la luce di candela --- */
+  --ls-gold: #c5a059;
+  --ls-gold-bright: #d8bd83;  /* hover / highlight */
+  --ls-gold-deep: #a07c3b;
+
+  /* --- Avorio: la luce su carta e pelle --- */
+  --ls-ivory: #f4efe6;        /* prosa principale (≈11:1 sul verde) */
+  --ls-ivory-dim: #d9d2c4;    /* prosa secondaria (≈7:1) */
+  --ls-ivory-faint: rgba(244, 239, 230, 0.62); /* metadati, didascalie */
+
+  --ls-line: rgba(244, 239, 230, 0.14); /* hairline su verde */
+
+  /* --- Scala tipografica modulare fluida (ratio ~1.28) --- */
+  --step--1: clamp(0.83rem, 0.80rem + 0.15vw, 0.92rem);
+  --step-0:  clamp(1.06rem, 1.00rem + 0.30vw, 1.25rem);   /* corpo */
+  --step-1:  clamp(1.30rem, 1.18rem + 0.55vw, 1.62rem);
+  --step-2:  clamp(1.60rem, 1.38rem + 1.05vw, 2.20rem);
+  --step-3:  clamp(2.00rem, 1.60rem + 1.90vw, 3.10rem);   /* h2 sezione */
+  --step-4:  clamp(2.55rem, 1.90rem + 3.10vw, 4.20rem);
+  --step-5:  clamp(3.10rem, 2.10rem + 4.70vw, 5.40rem);   /* display hero (≤6rem) */
+
+  /* --- Ritmo verticale fluido --- */
+  --space-section: clamp(5rem, 3rem + 9vw, 9rem);
+
+  /* Altezza dell'header fisso (condivisa con gli elementi sticky) */
+  --header-h: clamp(4.5rem, 3.6rem + 2.4vw, 7rem);
+
+  /* --- Scala z-index semantica --- */
+  --z-base: 1;
+  --z-raised: 10;
+  --z-badge: 30;
+  --z-header: 40;
+  --z-overlay: 50;
+  --z-toast: 60;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   Tipografia del sito pubblico
+   Display: Bodoni Moda · Testo/UI: Spectral · Firma: Allison
+   ============================================================ */
 
 .public-site {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.public-site p {
-    font-family: 'Neuton', serif;
-    font-style: italic;
-    font-weight: lighter;
-    font-size: 1.25rem;
-    color: #e5e7eb;
+  font-family: var(--font-body), Georgia, serif;
+  color: var(--ls-ivory);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .public-site h1,
 .public-site h2,
-.public-site h3 {
-    font-weight: bolder;
-    color: #e5e7eb
+.public-site h3,
+.public-site h4 {
+  font-family: var(--font-display), 'Times New Roman', serif;
+  color: var(--ls-ivory);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
 }
 
-.public-site h1 {
-    font-family: 'Allison', serif;
-    font-size: xxx-large;
-}
-
-.public-site h2 {
-    font-size: xx-large;
-}
-
-.public-site h3 {
-    font-size: x-large;
-}
+.public-site h1 { font-size: var(--step-5); line-height: 1.02; }
+.public-site h2 { font-size: var(--step-3); }
+.public-site h3 { font-size: var(--step-2); line-height: 1.12; }
+.public-site h4 { font-size: var(--step-1); line-height: 1.2; }
 
 .public-site p {
-    font-size: large;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: var(--step-0);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.65;
+  color: var(--ls-ivory-dim);
 }
 
-.public-site span {
-    font-size: medium;
+/* Prosa: misura leggibile e orfani ridotti */
+.public-site .prose-measure {
+  max-width: 68ch;
+  text-wrap: pretty;
 }
 
-@media (min-width: 1024px) {
-    .public-site h1 {
-        font-size: 5rem;
-    }
-
-    .public-site h2 {
-        font-size: 3.5rem;
-    }
-
-    .public-site h3 {
-        font-size: 2.5rem;
-    }
-
-    .public-site p {
-        font-size: 1.5rem;
-    }
-
-    .public-site span {
-        font-size: 1.25rem;
-    }
+.public-site a {
+  color: inherit;
 }
 
+/* --- Utility famiglia: per cambi di font puntuali nel markup --- */
+.ls-display { font-family: var(--font-display), 'Times New Roman', serif; }
+.ls-body { font-family: var(--font-body), Georgia, serif; }
+
+/* --- Firma manoscritta: solo momenti-brand, mai titolo di sezione --- */
+.ls-script {
+  font-family: var(--font-script), cursive;
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--ls-gold);
+}
+
+/* --- Kicker dorato: usato con parsimonia, non sopra ogni sezione --- */
+.ls-kicker {
+  font-family: var(--font-body), serif;
+  font-size: var(--step--1);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--ls-gold);
+}
+
+/* --- Hairline dorata di apertura sezione --- */
+.ls-rule {
+  display: inline-block;
+  width: clamp(2.5rem, 6vw, 4.5rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ls-gold), transparent);
+}
+
+/* --- Numeri/etichette in piccolo maiuscoletto spaziato (label brevi) --- */
+.ls-label {
+  font-family: var(--font-body), serif;
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ls-gold);
+  font-weight: 500;
+}
+
+/* ============================================================
+   Focus visibile coerente (accessibilità)
+   ============================================================ */
+.public-site :focus-visible {
+  outline: 2px solid var(--ls-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Selezione testo on-brand */
+.public-site ::selection {
+  background: var(--ls-gold);
+  color: var(--ls-green-night);
+}
+
+/* iOS/Safari: i campi date hanno pseudo-elementi interni con larghezze fisse
+   che sforano il contenitore. Forziamo il contenimento su tutti i browser. */
+.public-site input[type="date"] {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.public-site input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+/* Safari inserisce un container interno con larghezza fissa — lo conteniamo */
+.public-site input[type="date"]::-webkit-datetime-edit {
+  display: inline-flex;
+  overflow: hidden;
+  max-width: 100%;
+  padding: 0;
+}
+.public-site input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Scrollbar discreta (usata da liste interne, es. recensioni)
+   ============================================================ */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ls-gold-deep) transparent;
+}
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--ls-gold-deep);
+  border-radius: 999px;
+}
+
+/* ============================================================
+   Ritratto di Luca che "ritaglia" il testo (sezione Chi sono)
+   ============================================================ */
 .volto-background {
-    float: right;
-    height: auto;
-    shape-outside: url('../public/assets/Subject_1.png');
-    shape-image-threshold: 0.1;
-    shape-margin: 40px;
-    opacity: 1;
-    pointer-events: none;
-    margin-right: -10%;
-    margin-top: -5%;
-}
-
-.testo-biografia {
-    position: relative;
-    z-index: 20;
+  float: right;
+  height: auto;
+  shape-outside: url('../public/assets/Subject_1.png');
+  shape-image-threshold: 0.1;
+  shape-margin: 40px;
+  opacity: 1;
+  pointer-events: none;
+  margin-right: -10%;
+  margin-top: -5%;
 }
