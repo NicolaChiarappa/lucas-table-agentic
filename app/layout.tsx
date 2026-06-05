@@ -86,8 +86,8 @@ export default function RootLayout({
     ],
     "serviceType": "Private Chef a domicilio",
     "sameAs": [
-      "https://www.instagram.com/lucas.tables",
-      "https://www.tiktok.com/@lucas_tables"
+      "https://www.instagram.com/privatechef_lucachiarappa/",
+      "https://www.tiktok.com/@privatechef.luca"
     ]
   };
 
