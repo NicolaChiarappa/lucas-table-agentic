@@ -57,20 +57,11 @@ export const metadata: Metadata = {
     description: seoData.og.description,
     type: "website",
     locale: seoData.og.locale,
-    images: [
-      {
-        url: seoData.og.image,
-        width: 1200,
-        height: 630,
-        alt: seoData.title,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: seoData.twitter.title,
     description: seoData.twitter.description,
-    images: [seoData.twitter.image],
   },
 };
 export default function RootLayout({
