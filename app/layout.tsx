@@ -72,7 +72,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FoodService",
-    "name": "Lucas Table",
+    "name": "Luca Chiarappa",
     "description": "Private Chef a domicilio in Ticino e Lombardia. Cene private, eventi esclusivi e menù personalizzati.",
     "url": "https://lucastable.com",
     "telephone": "+41762421754",

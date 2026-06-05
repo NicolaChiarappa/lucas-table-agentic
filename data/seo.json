@@ -1,19 +1,17 @@
 {
-    "title": "Private Chef a Domicilio in Ticino e Lombardia | Lucas Table",
-    "description": "Vivi un'esperienza culinaria esclusiva con Lucas Table, Private Chef a domicilio in Ticino, Lombardia e Svizzera. Cene private, eventi di lusso e menu personalizzati.",
-    "keywords": "private chef svizzera, private chef ticino, private chef lombardia, cuoco a domicilio lugano, cena privata milano, private dining switzerland, alta cucina a domicilio, chef privato, lucas table",
-    "author": "Lucas Table",
+    "title": "Private Chef a Domicilio in Ticino e Lombardia | Luca Chiarappa",
+    "description": "Vivi un'esperienza culinaria esclusiva con Luca Chiarappa, Private Chef a domicilio in Ticino, Lombardia e Svizzera. Cene private, eventi di lusso e menu personalizzati.",
+    "keywords": "private chef svizzera, private chef ticino, private chef lombardia, cuoco a domicilio lugano, cena privata milano, private dining switzerland, alta cucina a domicilio, chef privato, luca chiarappa",
+    "author": "Luca Chiarappa",
     "og": {
-        "title": "Private Chef a Domicilio in Ticino e Lombardia | Lucas Table",
-        "description": "L'eccellenza dell'alta ristorazione nel comfort della tua casa. Scopri i menu esclusivi di Lucas Table per le tue occasioni speciali.",
+        "title": "Private Chef a Domicilio in Ticino e Lombardia | Luca Chiarappa",
+        "description": "L'eccellenza dell'alta ristorazione nel comfort della tua casa. Scopri i menu esclusivi di Luca Chiarappa per le tue occasioni speciali.",
         "type": "website",
-        "locale": "it_CH",
-        "image": "/assets/lucas_logo_large.webp"
+        "locale": "it_CH"
     },
     "twitter": {
         "card": "summary_large_image",
-        "title": "Private Chef a Domicilio in Ticino e Lombardia | Lucas Table",
-        "description": "L'eccellenza dell'alta ristorazione nel comfort della tua casa con Lucas Table.",
-        "image": "/assets/lucas_logo_large.webp"
+        "title": "Private Chef a Domicilio in Ticino e Lombardia | Luca Chiarappa",
+        "description": "L'eccellenza dell'alta ristorazione nel comfort della tua casa con Luca Chiarappa."
     }
 }
