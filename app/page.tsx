@@ -9,6 +9,7 @@ import { ReviewsSection } from "./components/ReviewsSection";
 import { BookingSection } from "./components/BookingSection";
 import { Footer } from "./components/Footer";
 import { ServedAreasSection } from "./components/ServedAreasSection";
+import { FAQSection } from "./components/FAQSection";
 
 export default function Home() {
   return (
@@ -21,7 +22,8 @@ export default function Home() {
         <ProposalsSection />
         <MenuSection />
         <ReviewsSection />
-        {/* <ServedAreasSection /> */}
+        <ServedAreasSection />
+        <FAQSection />
         <BookingSection />
       </main>
       <Footer />

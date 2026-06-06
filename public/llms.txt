@@ -1,0 +1,33 @@
+# Lucas Table — Private Chef a Domicilio
+
+> Luca Chiarappa è un private chef a domicilio attivo in Ticino (Svizzera) e Lombardia (Italia). Trasforma la cucina dei suoi ospiti in un ristorante d'eccellenza per una sera. Il servizio include menu degustazione di 6 portate, servizio completo e riordino della cucina. Prezzi: CHF 100–190 a persona.
+
+## Informazioni chiave
+
+- **Nome:** Luca Chiarappa
+- **Attività:** Private Chef a domicilio (cene private, eventi esclusivi, menu personalizzati)
+- **Zone servite — Ticino:** Lugano, Locarno, Bellinzona, Mendrisio, Ascona
+- **Zone servite — Lombardia:** Milano, Como, Varese, Monza, Lecco
+- **Telefono:** +41 76 242 17 54
+- **Email:** lucastablee@gmail.com
+- **Instagram:** https://www.instagram.com/privatechef_lucachiarappa/
+- **TikTok:** https://www.tiktok.com/@privatechef.luca
+
+## Esperienze offerte
+
+- **Il sesto senso** (da 2 a 8 ospiti): Cena conviviale, atmosfera intima, ingredienti di eccellenza.
+- **Cin Cin** (riservata a 2 ospiti): Percorso esclusivo nell'alta cucina per due, con attenzione assoluta.
+- **Su misura** (da 2 a 20 ospiti): Menu personalizzato per ogni genere di occasione e palato.
+
+## Menu e Prezzi
+
+- [Menu La Carne — CHF 150 a persona](https://lucastable.ch): 6 portate con amuse-bouche, antipasto, primo, secondo, pre-dessert e dessert.
+- [Menu Il Mare — CHF 190 a persona](https://lucastable.ch): 6 portate di pesce con aragosta, polpo, tonno e dessert.
+- [Menu Vegetariano — CHF 100 a persona](https://lucastable.ch): 6 portate vegetariane creative.
+
+## Pagine del sito
+
+- [Homepage](https://lucastable.ch): Presentazione del servizio, esperienze, menu, recensioni e prenotazione.
+- [Private Chef Ticino](https://lucastable.ch/private-chef-ticino): Servizio dedicato a Lugano, Locarno, Bellinzona.
+- [Private Chef Lombardia](https://lucastable.ch/private-chef-lombardia): Servizio dedicato a Milano, Como, Varese.
+- [Contenuto completo per LLM](https://lucastable.ch/llms-full.txt): Versione estesa con menu dettagliati e FAQ.
