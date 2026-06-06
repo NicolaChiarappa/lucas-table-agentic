@@ -65,7 +65,7 @@ export function Footer() {
                     <h3 className="ls-label mb-5">Social</h3>
                     <div className="flex gap-3">
                         <a
-                            href="https://www.instagram.com/lucas.tables?igsh=MTVrYnFzZnlvbDV5MQ%3D%3D&utm_source=qr"
+                            href="https://www.instagram.com/privatechef_lucachiarappa/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="grid h-11 w-11 place-items-center rounded-full border border-ls-line text-ls-ivory transition-colors duration-300 hover:border-ls-gold hover:text-ls-gold"
@@ -74,7 +74,7 @@ export function Footer() {
                             <Instagram className="h-5 w-5" />
                         </a>
                         <a
-                            href="https://www.tiktok.com/@lucas_tables?_r=1&_t=ZN-93mKa9tEQJq"
+                            href="https://www.tiktok.com/@privatechef.luca"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="grid h-11 w-11 place-items-center rounded-full border border-ls-line text-ls-ivory transition-colors duration-300 hover:border-ls-gold hover:text-ls-gold"
