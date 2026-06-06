@@ -49,9 +49,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  icons: {
-    icon: "/assets/lucas_logo_small.webp",
-  },
   openGraph: {
     title: seoData.og.title,
     description: seoData.og.description,
