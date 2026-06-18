@@ -5,10 +5,10 @@ import { join } from 'path'
 // Route segment config
 export const runtime = 'nodejs'
 
-// Image metadata
+// Image metadata — 48×48 is Google's recommended minimum for SERP favicons
 export const size = {
-  width: 32,
-  height: 32,
+  width: 48,
+  height: 48,
 }
 export const contentType = 'image/png'
 
@@ -20,15 +20,16 @@ export default function Icon() {
     (
       <div
         style={{
-          background: 'transparent',
+          background: '#07211a',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          borderRadius: 8,
         }}
       >
-        <div style={{ color: '#0a2e24', fontSize: 38, fontFamily: 'Allison' }}>
+        <div style={{ color: '#c9a84c', fontSize: 46, fontFamily: 'Allison', lineHeight: 1 }}>
           L
         </div>
       </div>
