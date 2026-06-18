@@ -10,6 +10,11 @@ const EXPLORE = [
     { label: "Prenota", href: "#contact" },
 ];
 
+const ZONES = [
+    { label: "Private Chef Ticino", href: "/private-chef-ticino" },
+    { label: "Private Chef Lombardia", href: "/private-chef-lombardia" },
+];
+
 export function Footer() {
     const year = new Date().getFullYear();
 
@@ -51,6 +56,16 @@ export function Footer() {
                     <h3 className="ls-label mb-5">Esplora</h3>
                     <ul className="space-y-2.5">
                         {EXPLORE.map((item) => (
+                            <li key={item.href}>
+                                <a href={item.href} className="text-[0.95rem] text-ls-ivory-dim transition-colors hover:text-ls-gold">
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <h3 className="ls-label mb-4 mt-8">Zone servite</h3>
+                    <ul className="space-y-2.5">
+                        {ZONES.map((item) => (
                             <li key={item.href}>
                                 <a href={item.href} className="text-[0.95rem] text-ls-ivory-dim transition-colors hover:text-ls-gold">
                                     {item.label}

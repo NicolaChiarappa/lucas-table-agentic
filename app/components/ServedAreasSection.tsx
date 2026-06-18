@@ -7,11 +7,15 @@ const REGIONS = [
         name: "Canton Ticino",
         flag: "🇨🇭",
         cities: ["Lugano", "Locarno", "Bellinzona", "Mendrisio", "Ascona"],
+        href: "/private-chef-ticino",
+        cta: "Scopri il servizio in Ticino",
     },
     {
         name: "Lombardia",
         flag: "🇮🇹",
         cities: ["Milano", "Como", "Varese", "Monza", "Lecco"],
+        href: "/private-chef-lombardia",
+        cta: "Scopri il servizio in Lombardia",
     },
 ];
 
@@ -47,8 +51,9 @@ export function ServedAreasSection() {
                 {/* Griglia regioni */}
                 <div className="grid gap-6 sm:grid-cols-2">
                     {REGIONS.map((region, i) => (
-                        <motion.article
+                        <motion.a
                             key={region.name}
+                            href={region.href}
                             {...reveal(i * 0.1)}
                             className="group relative rounded-[3px] border border-ls-line p-8 transition-colors duration-300 hover:border-ls-gold/40 sm:p-10"
                         >
@@ -75,7 +80,11 @@ export function ServedAreasSection() {
                             <p className="mt-6 text-[0.82rem] text-ls-ivory/40">
                                 e zone limitrofe
                             </p>
-                        </motion.article>
+
+                            <p className="mt-5 text-[0.82rem] font-medium uppercase tracking-[0.15em] text-ls-gold/70 transition-colors duration-200 group-hover:text-ls-gold">
+                                {region.cta} →
+                            </p>
+                        </motion.a>
                     ))}
                 </div>
 
