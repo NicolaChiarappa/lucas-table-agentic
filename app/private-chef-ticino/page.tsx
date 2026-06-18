@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   description: "Luca Chiarappa, private chef a domicilio nel Canton Ticino. Menu degustazione di 6 portate da CHF 100 a persona per cene esclusive a Lugano, Locarno, Bellinzona, Ascona e Mendrisio.",
   keywords: "private chef ticino, private chef lugano, private chef locarno, private chef bellinzona, cuoco a domicilio ticino, cena privata lugano, chef privato lugano, private dining ticino, private chef svizzera, chef a domicilio lugano, cena romantica ticino, private chef ascona, chef privato ticino prezzi, menu degustazione lugano",
   alternates: {
-    canonical: "https://lucastable.ch/private-chef-ticino",
+    canonical: "https://www.lucastable.ch/private-chef-ticino",
   },
   openGraph: {
     title: "Private Chef a Domicilio in Ticino | Lugano, Locarno, Bellinzona — Lucas Table",
     description: "Menu degustazione di 6 portate da CHF 100. Luca Chiarappa porta il fine dining direttamente nella tua casa in tutto il Canton Ticino.",
-    url: "https://lucastable.ch/private-chef-ticino",
+    url: "https://www.lucastable.ch/private-chef-ticino",
     type: "website",
     locale: "it_CH",
   },
@@ -163,9 +163,9 @@ export default function PrivateChefTicino() {
   const localJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://lucastable.ch/#business",
+    "@id": "https://www.lucastable.ch/#business",
     "name": "Lucas Table — Private Chef a Domicilio in Ticino",
-    "url": "https://lucastable.ch/private-chef-ticino",
+    "url": "https://www.lucastable.ch/private-chef-ticino",
     "description": "Luca Chiarappa, private chef a domicilio nel Canton Ticino. Menu degustazione di 6 portate da CHF 100 a persona per cene esclusive a Lugano, Locarno, Bellinzona, Ascona e Mendrisio.",
     "telephone": "+41762421754",
     "email": "lucastablee@gmail.com",
@@ -193,13 +193,13 @@ export default function PrivateChefTicino() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://lucastable.ch"
+        "item": "https://www.lucastable.ch"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Private Chef Ticino",
-        "item": "https://lucastable.ch/private-chef-ticino"
+        "item": "https://www.lucastable.ch/private-chef-ticino"
       }
     ]
   };

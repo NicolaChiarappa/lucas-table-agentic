@@ -41,7 +41,7 @@ const allison = Allison({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lucastable.ch'),
+  metadataBase: new URL('https://www.lucastable.ch'),
   title: seoData.title,
   description: seoData.description,
   keywords: seoData.keywords,
@@ -70,21 +70,21 @@ export default function RootLayout({
   const businessJsonLd = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "FoodEstablishment"],
-    "@id": "https://lucastable.ch/#business",
+    "@id": "https://www.lucastable.ch/#business",
     "name": "Lucas Table — Luca Chiarappa Private Chef",
     "alternateName": "Lucas Table",
     "description": "Private Chef a domicilio in Ticino e Lombardia. Luca Chiarappa trasforma la tua cucina in un ristorante d'eccellenza per una sera. Menu degustazione di 6 portate, servizio completo e riordino della cucina. Prezzi: CHF 100–190 a persona.",
-    "url": "https://lucastable.ch",
+    "url": "https://www.lucastable.ch",
     "telephone": "+41762421754",
     "email": "lucastablee@gmail.com",
-    "image": "https://lucastable.ch/assets/lucas_logo_large.webp",
-    "logo": "https://lucastable.ch/assets/lucas_logo_large.webp",
+    "image": "https://www.lucastable.ch/assets/lucas_logo_large.webp",
+    "logo": "https://www.lucastable.ch/assets/lucas_logo_large.webp",
     "priceRange": "CHF 100–190",
     "currenciesAccepted": "CHF, EUR",
     "paymentAccepted": "Cash, Bank Transfer",
     "founder": {
       "@type": "Person",
-      "@id": "https://lucastable.ch/#luca",
+      "@id": "https://www.lucastable.ch/#luca",
       "name": "Luca Chiarappa",
       "jobTitle": "Private Chef",
       "description": "Chef privato a domicilio, 23 anni, origini pugliesi, formazione in ristoranti stellati in Svizzera.",
@@ -222,11 +222,11 @@ export default function RootLayout({
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://lucastable.ch/#website",
+    "@id": "https://www.lucastable.ch/#website",
     "name": "Lucas Table",
-    "url": "https://lucastable.ch",
+    "url": "https://www.lucastable.ch",
     "description": "Sito ufficiale di Luca Chiarappa, Private Chef a domicilio in Ticino e Lombardia.",
-    "publisher": { "@id": "https://lucastable.ch/#business" },
+    "publisher": { "@id": "https://www.lucastable.ch/#business" },
     "inLanguage": "it"
   };
 

@@ -1,6 +1,6 @@
 # Lucas Table — Private Chef a Domicilio (Contenuto completo)
 
-> Luca Chiarappa è un private chef a domicilio attivo in Ticino (Svizzera) e Lombardia (Italia). Trasforma la cucina dei suoi ospiti in un ristorante d'eccellenza per una sera. Sito web: https://lucastable.ch
+> Luca Chiarappa è un private chef a domicilio attivo in Ticino (Svizzera) e Lombardia (Italia). Trasforma la cucina dei suoi ospiti in un ristorante d'eccellenza per una sera. Sito web: https://www.lucastable.ch
 
 ---
 
@@ -90,7 +90,7 @@ Il servizio è perfetto per cene romantiche, anniversari, compleanni, cene tra a
 
 ## Contatti
 
-- **Sito web:** https://lucastable.ch
+- **Sito web:** https://www.lucastable.ch
 - **WhatsApp:** +41 76 242 17 54
 - **Email:** lucastablee@gmail.com
 - **Telefono:** +41 76 242 17 54

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://lucastable.ch';
+  const baseUrl = 'https://www.lucastable.ch';
 
   return [
     {

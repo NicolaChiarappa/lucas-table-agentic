@@ -21,13 +21,13 @@
 
 ## Menu e Prezzi
 
-- [Menu La Carne — CHF 150 a persona](https://lucastable.ch): 6 portate con amuse-bouche, antipasto, primo, secondo, pre-dessert e dessert.
-- [Menu Il Mare — CHF 190 a persona](https://lucastable.ch): 6 portate di pesce con aragosta, polpo, tonno e dessert.
-- [Menu Vegetariano — CHF 100 a persona](https://lucastable.ch): 6 portate vegetariane creative.
+- [Menu La Carne — CHF 150 a persona](https://www.lucastable.ch): 6 portate con amuse-bouche, antipasto, primo, secondo, pre-dessert e dessert.
+- [Menu Il Mare — CHF 190 a persona](https://www.lucastable.ch): 6 portate di pesce con aragosta, polpo, tonno e dessert.
+- [Menu Vegetariano — CHF 100 a persona](https://www.lucastable.ch): 6 portate vegetariane creative.
 
 ## Pagine del sito
 
-- [Homepage](https://lucastable.ch): Presentazione del servizio, esperienze, menu, recensioni e prenotazione.
-- [Private Chef Ticino](https://lucastable.ch/private-chef-ticino): Servizio dedicato a Lugano, Locarno, Bellinzona.
-- [Private Chef Lombardia](https://lucastable.ch/private-chef-lombardia): Servizio dedicato a Milano, Como, Varese.
-- [Contenuto completo per LLM](https://lucastable.ch/llms-full.txt): Versione estesa con menu dettagliati e FAQ.
+- [Homepage](https://www.lucastable.ch): Presentazione del servizio, esperienze, menu, recensioni e prenotazione.
+- [Private Chef Ticino](https://www.lucastable.ch/private-chef-ticino): Servizio dedicato a Lugano, Locarno, Bellinzona.
+- [Private Chef Lombardia](https://www.lucastable.ch/private-chef-lombardia): Servizio dedicato a Milano, Como, Varese.
+- [Contenuto completo per LLM](https://www.lucastable.ch/llms-full.txt): Versione estesa con menu dettagliati e FAQ.

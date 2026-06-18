@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   description: "Luca Chiarappa, private chef a domicilio in Lombardia. Menu degustazione di 6 portate per cene private ed eventi esclusivi a Milano, Como, Varese, Monza e Lecco.",
   keywords: "private chef lombardia, private chef milano, private chef como, private chef lago di como, cuoco a domicilio milano, cena privata milano, chef privato milano, private dining milano, chef a domicilio como, cena romantica lombardia, private chef varese, private chef brianza, private chef monza, menu degustazione milano, fine dining a domicilio lombardia",
   alternates: {
-    canonical: "https://lucastable.ch/private-chef-lombardia",
+    canonical: "https://www.lucastable.ch/private-chef-lombardia",
   },
   openGraph: {
     title: "Private Chef a Domicilio in Lombardia | Milano, Como, Varese — Lucas Table",
     description: "Menu degustazione di 6 portate per cene private ed eventi esclusivi a Milano, Como e in tutta la Lombardia. Luca Chiarappa porta il fine dining a casa tua.",
-    url: "https://lucastable.ch/private-chef-lombardia",
+    url: "https://www.lucastable.ch/private-chef-lombardia",
     type: "website",
     locale: "it_IT",
   },
@@ -165,9 +165,9 @@ export default function PrivateChefLombardia() {
   const localJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://lucastable.ch/#business",
+    "@id": "https://www.lucastable.ch/#business",
     "name": "Lucas Table — Private Chef a Domicilio in Lombardia",
-    "url": "https://lucastable.ch/private-chef-lombardia",
+    "url": "https://www.lucastable.ch/private-chef-lombardia",
     "description": "Luca Chiarappa, private chef a domicilio in Lombardia. Menu degustazione di 6 portate per cene private ed eventi esclusivi a Milano, Como, Varese, Monza e Lecco.",
     "telephone": "+41762421754",
     "email": "lucastablee@gmail.com",
@@ -195,13 +195,13 @@ export default function PrivateChefLombardia() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://lucastable.ch"
+        "item": "https://www.lucastable.ch"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Private Chef Lombardia",
-        "item": "https://lucastable.ch/private-chef-lombardia"
+        "item": "https://www.lucastable.ch/private-chef-lombardia"
       }
     ]
   };
