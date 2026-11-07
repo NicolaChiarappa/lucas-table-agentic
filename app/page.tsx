@@ -10,8 +10,10 @@ import { BookingSection } from "./components/BookingSection";
 import { Footer } from "./components/Footer";
 import { ServedAreasSection } from "./components/ServedAreasSection";
 import { FAQSection } from "./components/FAQSection";
+import { getMenuPricing } from "@/lib/pricing";
 
-export default function Home() {
+export default async function Home() {
+  const pricing = await getMenuPricing();
   return (
     <div id="top" className='public-site relative min-h-screen bg-ls-green'>
       <SiteHeader />
@@ -23,7 +25,7 @@ export default function Home() {
         <MenuSection />
         <ReviewsSection />
         <ServedAreasSection />
-        <FAQSection />
+        <FAQSection pricing={pricing} />
         <BookingSection />
       </main>
       <Footer />

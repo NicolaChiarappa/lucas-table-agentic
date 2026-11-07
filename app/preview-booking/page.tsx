@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import { BookingSection } from "../components/BookingSection";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function PreviewBooking() {
     return (

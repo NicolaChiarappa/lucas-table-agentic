@@ -1,11 +1,8 @@
-import { prisma } from "@/lib/prisma"
+import { getMenuCategories } from "@/lib/pricing"
 import { MenuSectionClient } from "./MenuSectionClient"
 
 export async function MenuSection() {
-  const categories = await prisma.menuCategory.findMany({
-    include: { items: { orderBy: { sortOrder: "asc" } } },
-    orderBy: { sortOrder: "asc" },
-  })
+  const categories = await getMenuCategories()
 
   const menus = categories.map((cat) => ({
     id: cat.id,

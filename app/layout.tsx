@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Bodoni_Moda, Spectral, Allison } from "next/font/goo
 import { Toaster } from "sonner";
 import "../styles/index.css";
 import seoData from "../data/seo.json";
+import { chf, fillPrices, getMenuCategories, getMenuPricing } from "@/lib/pricing";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,10 +41,12 @@ const allison = Allison({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+export async function generateMetadata(): Promise<Metadata> {
+  const pricing = await getMenuPricing();
+  return {
   metadataBase: new URL('https://www.lucastable.ch'),
   title: seoData.title,
-  description: seoData.description,
+  description: fillPrices(seoData.description, pricing),
   keywords: seoData.keywords,
   authors: [{ name: seoData.author }],
   alternates: {
@@ -51,21 +54,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: seoData.og.title,
-    description: seoData.og.description,
+    description: fillPrices(seoData.og.description, pricing),
+    url: "/",
     type: "website",
     locale: seoData.og.locale,
   },
   twitter: {
     card: "summary_large_image",
     title: seoData.twitter.title,
-    description: seoData.twitter.description,
+    description: fillPrices(seoData.twitter.description, pricing),
   },
-};
-export default function RootLayout({
+  };
+}
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [menus, pricing] = await Promise.all([getMenuCategories(), getMenuPricing()]);
+
   /* ── JSON-LD: LocalBusiness (entità principale) ────────────── */
   const businessJsonLd = {
     "@context": "https://schema.org",
@@ -73,13 +80,13 @@ export default function RootLayout({
     "@id": "https://www.lucastable.ch/#business",
     "name": "Lucas Table — Luca Chiarappa Private Chef",
     "alternateName": "Lucas Table",
-    "description": "Private Chef a domicilio in Ticino e Lombardia. Luca Chiarappa trasforma la tua cucina in un ristorante d'eccellenza per una sera. Menu degustazione di 6 portate, servizio completo e riordino della cucina. Prezzi: CHF 100–190 a persona.",
+    "description": `Private Chef a domicilio in Ticino e Lombardia. Luca Chiarappa trasforma la tua cucina in un ristorante d'eccellenza per una sera. Menu degustazione di 6 portate, servizio completo e riordino della cucina. Prezzi: ${pricing.range} a persona.`,
     "url": "https://www.lucastable.ch",
     "telephone": "+41762421754",
     "email": "lucastablee@gmail.com",
     "image": "https://www.lucastable.ch/assets/lucas_logo_large.webp",
     "logo": "https://www.lucastable.ch/assets/lucas_logo_large.webp",
-    "priceRange": "CHF 100–190",
+    "priceRange": pricing.range,
     "currenciesAccepted": "CHF, EUR",
     "paymentAccepted": "Cash, Bank Transfer",
     "founder": {
@@ -90,7 +97,7 @@ export default function RootLayout({
       "description": "Chef privato a domicilio, 23 anni, origini pugliesi, formazione in ristoranti stellati in Svizzera.",
       "knowsAbout": ["Alta cucina", "Fine dining", "Private dining", "Cucina italiana", "Menu degustazione"],
       "sameAs": [
-        "https://www.instagram.com/privatechef_lucachiarappa/",
+        "https://www.instagram.com/luca_cucinami/",
         "https://www.tiktok.com/@privatechef.luca"
       ]
     },
@@ -145,62 +152,21 @@ export default function RootLayout({
         }
       ]
     },
-    "hasMenu": [
-      {
-        "@type": "Menu",
-        "name": "La Carne",
-        "description": "Menu degustazione di carne — 6 portate, CHF 150 a persona",
-        "offers": { "@type": "Offer", "price": "150", "priceCurrency": "CHF" },
-        "hasMenuSection": {
-          "@type": "MenuSection",
-          "name": "Percorso degustazione",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Tartare di vitello, spuma di midollo mela acida", "description": "Amuse-bouche" },
-            { "@type": "MenuItem", "name": "Carpaccio di filetto di manzo con demi glace tiepida e maionese all'acqua di pomodoro", "description": "Antipasto" },
-            { "@type": "MenuItem", "name": "Tagliatella con stracotto di agnello, lime e polvere di ginepro", "description": "Primo" },
-            { "@type": "MenuItem", "name": "Guancette di maiale brasate, purea di patate alla francese e cipolla rossa agrodolce", "description": "Secondo" },
-            { "@type": "MenuItem", "name": "Panna cotta ai piselli e coulis di fragole", "description": "Pre-dessert" },
-            { "@type": "MenuItem", "name": "Cioccolato bianco, caramello salato e orzo tostato", "description": "Dessert" }
-          ]
-        }
+    "hasMenu": menus.map((menu) => ({
+      "@type": "Menu",
+      "name": menu.title,
+      "description": `Menu degustazione — ${menu.items.length} portate, ${chf(menu.price)} a persona`,
+      "offers": { "@type": "Offer", "price": String(menu.price), "priceCurrency": "CHF" },
+      "hasMenuSection": {
+        "@type": "MenuSection",
+        "name": "Percorso degustazione",
+        "hasMenuItem": menu.items.map((item) => ({
+          "@type": "MenuItem",
+          "name": item.dish,
+          "description": item.course,
+        })),
       },
-      {
-        "@type": "Menu",
-        "name": "Il Mare",
-        "description": "Menu degustazione di pesce — 6 portate, CHF 190 a persona",
-        "offers": { "@type": "Offer", "price": "190", "priceCurrency": "CHF" },
-        "hasMenuSection": {
-          "@type": "MenuSection",
-          "name": "Percorso degustazione",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Crocchetta di gambero con cuore di cremoso di bisque e gel al limone", "description": "Amuse-bouche" },
-            { "@type": "MenuItem", "name": "Aragosta con emulsione di dragoncello e beurre blanc di cozze", "description": "Antipasto" },
-            { "@type": "MenuItem", "name": "Orecchiette artigianali con ragù di polpo e emulsione al sedano rapa", "description": "Primo" },
-            { "@type": "MenuItem", "name": "Ventresca di tonno al burro nocciola, crema allo zafferano e rafano, salsa pil pil e porro fondente", "description": "Secondo" },
-            { "@type": "MenuItem", "name": "Sorbetto alla mela verde e il suo estratto e brunoise di sedano", "description": "Pre-dessert" },
-            { "@type": "MenuItem", "name": "Ganache al caramello, arachidi e semifreddo al mascarpone", "description": "Dessert" }
-          ]
-        }
-      },
-      {
-        "@type": "Menu",
-        "name": "Vegetariano",
-        "description": "Menu degustazione vegetariano — 6 portate, CHF 100 a persona",
-        "offers": { "@type": "Offer", "price": "100", "priceCurrency": "CHF" },
-        "hasMenuSection": {
-          "@type": "MenuSection",
-          "name": "Percorso degustazione",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Mini Scorpella San Severese con ripieno di crema al caciocavallo, ananas grigliato agrodolce e polvere di anice", "description": "Amuse-bouche" },
-            { "@type": "MenuItem", "name": "Porro fondente, crema al cavolfiore tostato, coulis e polvere di lamponi e olio all'erba cipollina", "description": "Antipasto" },
-            { "@type": "MenuItem", "name": "Lasagna scomposta con ragù bianco vegetariano, olio al rosmarino", "description": "Primo" },
-            { "@type": "MenuItem", "name": "Cubo di melanzana cotta al vino rosso, la sua riduzione e spuma di salsa Bernese", "description": "Secondo" },
-            { "@type": "MenuItem", "name": "Sorbetto al rabarbaro e olio al basilico", "description": "Pre-dessert" },
-            { "@type": "MenuItem", "name": "Macedonia di frutta arrostita/grigliata con crema al mascarpone e vaniglia", "description": "Dessert" }
-          ]
-        }
-      }
-    ],
+    })),
     "contactPoint": [
       {
         "@type": "ContactPoint",
@@ -210,8 +176,10 @@ export default function RootLayout({
         "availableLanguage": ["Italian", "English"]
       }
     ],
+    "hasMap": "https://maps.google.com/?cid=3612958602273508292",
     "sameAs": [
-      "https://www.instagram.com/privatechef_lucachiarappa/",
+      "https://maps.google.com/?cid=3612958602273508292",
+      "https://www.instagram.com/luca_cucinami/",
       "https://www.tiktok.com/@privatechef.luca"
     ],
     "knowsLanguage": ["it", "en"],

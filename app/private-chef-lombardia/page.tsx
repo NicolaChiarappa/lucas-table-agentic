@@ -10,28 +10,34 @@ import { BookingSection } from "../components/BookingSection";
 import { Footer } from "../components/Footer";
 import { ServedAreasSection } from "../components/ServedAreasSection";
 import { FAQSection } from "../components/FAQSection";
+import { getMenuPricing, type MenuPricing } from "@/lib/pricing";
 
 export const metadata: Metadata = {
-  title: "Private Chef a Domicilio in Lombardia | Milano, Como, Varese — Lucas Table",
-  description: "Luca Chiarappa, private chef a domicilio in Lombardia. Menu degustazione di 6 portate per cene private ed eventi esclusivi a Milano, Como, Varese, Monza e Lecco.",
+  title: "Private Chef a Domicilio a Milano e Como | Lucas Table",
+  description: "Private chef e cuoco a domicilio a Milano, Como, Varese, Monza e Lecco. Menu degustazione di 6 portate per cene private ed eventi esclusivi.",
   keywords: "private chef lombardia, private chef milano, private chef como, private chef lago di como, cuoco a domicilio milano, cena privata milano, chef privato milano, private dining milano, chef a domicilio como, cena romantica lombardia, private chef varese, private chef brianza, private chef monza, menu degustazione milano, fine dining a domicilio lombardia",
   alternates: {
     canonical: "https://www.lucastable.ch/private-chef-lombardia",
   },
   openGraph: {
-    title: "Private Chef a Domicilio in Lombardia | Milano, Como, Varese — Lucas Table",
+    title: "Private Chef a Domicilio a Milano e Como | Lucas Table",
     description: "Menu degustazione di 6 portate per cene private ed eventi esclusivi a Milano, Como e in tutta la Lombardia. Luca Chiarappa porta il fine dining a casa tua.",
     url: "https://www.lucastable.ch/private-chef-lombardia",
     type: "website",
     locale: "it_IT",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Private Chef a Domicilio a Milano e Como | Lucas Table",
+    description: "Private chef e cuoco a domicilio a Milano, Como, Varese, Monza e Lecco. Menu degustazione di 6 portate per cene private ed eventi esclusivi.",
+  },
 };
 
-function LombardiaContentSection() {
+function LombardiaContentSection({ pricing }: { pricing: MenuPricing }) {
   const localFaqItems = [
     {
       question: "Quanto costa un private chef a Milano o in Lombardia?",
-      answer: "I menu Lucas Table partono da CHF 100 a persona per il menu vegetariano, CHF 150 per il menu di carne e CHF 190 per il menu di pesce (equivalenti in euro al cambio corrente). Il prezzo include la spesa degli ingredienti, la preparazione di 6 portate, il servizio al tavolo e il riordino completo della cucina.",
+      answer: `I menu Lucas Table partono da ${pricing.sentence} (equivalenti in euro al cambio corrente). Il prezzo include la spesa degli ingredienti, la preparazione di 6 portate, il servizio al tavolo e il riordino completo della cucina.`,
     },
     {
       question: "Il servizio di private chef copre tutta la Lombardia?",
@@ -80,7 +86,8 @@ function LombardiaContentSection() {
           all&apos;interno delle mura di casa:{" "}
           <strong className="font-medium text-ls-ivory">Lucas Table</strong> porta
           l&apos;esperienza dei ristoranti stellati direttamente nella tua sala da pranzo, con un
-          servizio completo che non lascia nulla al caso.
+          servizio completo che non lascia nulla al caso: private chef e cuoco a domicilio in
+          un&apos;unica persona, dalla spesa al riordino.
         </p>
 
         <div className="space-y-10">
@@ -161,17 +168,22 @@ function LombardiaContentSection() {
   );
 }
 
-export default function PrivateChefLombardia() {
+export default async function PrivateChefLombardia() {
+  const pricing = await getMenuPricing();
   const localJsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.lucastable.ch/#business",
-    "name": "Lucas Table — Private Chef a Domicilio in Lombardia",
+    "@type": "Service",
+    "@id": "https://www.lucastable.ch/private-chef-lombardia#service",
+    "name": "Private Chef a Domicilio in Lombardia",
     "url": "https://www.lucastable.ch/private-chef-lombardia",
+    "provider": { "@id": "https://www.lucastable.ch/#business" },
     "description": "Luca Chiarappa, private chef a domicilio in Lombardia. Menu degustazione di 6 portate per cene private ed eventi esclusivi a Milano, Como, Varese, Monza e Lecco.",
-    "telephone": "+41762421754",
-    "email": "lucastablee@gmail.com",
-    "priceRange": "CHF 100–190",
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": String(pricing.min),
+      "highPrice": String(pricing.max),
+      "priceCurrency": "CHF",
+    },
     "areaServed": {
       "@type": "AdministrativeArea",
       "name": "Lombardia",
@@ -224,13 +236,13 @@ export default function PrivateChefLombardia() {
           titleHighlight="in Lombardia"
           description="Un ristorante stellato al tuo tavolo. Da Milano al Lago di Como, curo ogni dettaglio della tua cena privata. Goditi un percorso di alta cucina senza pensare a nulla."
         />
-        <LombardiaContentSection />
+        <LombardiaContentSection pricing={pricing} />
         <InfoSection />
         <ProposalsSection />
         <MenuSection />
         <ReviewsSection />
         <ServedAreasSection />
-        <FAQSection />
+        <FAQSection pricing={pricing} />
         <BookingSection />
       </main>
       <Footer />

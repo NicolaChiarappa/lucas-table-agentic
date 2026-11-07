@@ -80,7 +80,7 @@ export function Footer() {
                     <h3 className="ls-label mb-5">Social</h3>
                     <div className="flex gap-3">
                         <a
-                            href="https://www.instagram.com/privatechef_lucachiarappa/"
+                            href="https://www.instagram.com/luca_cucinami/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="grid h-11 w-11 place-items-center rounded-full border border-ls-line text-ls-ivory transition-colors duration-300 hover:border-ls-gold hover:text-ls-gold"

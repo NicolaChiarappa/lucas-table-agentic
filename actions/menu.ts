@@ -31,7 +31,9 @@ export async function createMenuCategory(formData: FormData) {
     },
   })
   revalidatePath("/admin/menu")
-  revalidatePath("/")
+  revalidatePath("/", "layout")
+  revalidatePath("/llms.txt")
+  revalidatePath("/llms-full.txt")
 }
 
 export async function updateMenuCategory(formData: FormData) {
@@ -45,14 +47,18 @@ export async function updateMenuCategory(formData: FormData) {
     data: { title, price },
   })
   revalidatePath("/admin/menu")
-  revalidatePath("/")
+  revalidatePath("/", "layout")
+  revalidatePath("/llms.txt")
+  revalidatePath("/llms-full.txt")
 }
 
 export async function deleteMenuCategory(id: string) {
   await requireAuth()
   await prisma.menuCategory.delete({ where: { id } })
   revalidatePath("/admin/menu")
-  revalidatePath("/")
+  revalidatePath("/", "layout")
+  revalidatePath("/llms.txt")
+  revalidatePath("/llms-full.txt")
 }
 
 export async function createMenuItem(formData: FormData) {
@@ -74,7 +80,9 @@ export async function createMenuItem(formData: FormData) {
     },
   })
   revalidatePath("/admin/menu")
-  revalidatePath("/")
+  revalidatePath("/", "layout")
+  revalidatePath("/llms.txt")
+  revalidatePath("/llms-full.txt")
 }
 
 export async function updateMenuItem(formData: FormData) {
@@ -88,12 +96,16 @@ export async function updateMenuItem(formData: FormData) {
     data: { course, dish },
   })
   revalidatePath("/admin/menu")
-  revalidatePath("/")
+  revalidatePath("/", "layout")
+  revalidatePath("/llms.txt")
+  revalidatePath("/llms-full.txt")
 }
 
 export async function deleteMenuItem(id: string) {
   await requireAuth()
   await prisma.menuItem.delete({ where: { id } })
   revalidatePath("/admin/menu")
-  revalidatePath("/")
+  revalidatePath("/", "layout")
+  revalidatePath("/llms.txt")
+  revalidatePath("/llms-full.txt")
 }

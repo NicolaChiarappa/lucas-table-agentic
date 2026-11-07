@@ -10,28 +10,37 @@ import { BookingSection } from "../components/BookingSection";
 import { Footer } from "../components/Footer";
 import { ServedAreasSection } from "../components/ServedAreasSection";
 import { FAQSection } from "../components/FAQSection";
+import { getMenuPricing, type MenuPricing } from "@/lib/pricing";
 
-export const metadata: Metadata = {
-  title: "Private Chef a Domicilio in Ticino | Lugano, Locarno, Bellinzona — Lucas Table",
-  description: "Luca Chiarappa, private chef a domicilio nel Canton Ticino. Menu degustazione di 6 portate da CHF 100 a persona per cene esclusive a Lugano, Locarno, Bellinzona, Ascona e Mendrisio.",
+export async function generateMetadata(): Promise<Metadata> {
+  const pricing = await getMenuPricing();
+  return {
+  title: "Private Chef a Domicilio a Lugano e in Ticino | Lucas Table",
+  description: `Private chef e cuoco a domicilio a Lugano, Locarno, Bellinzona e in tutto il Ticino. Menu degustazione di 6 portate da CHF ${pricing.min} a persona.`,
   keywords: "private chef ticino, private chef lugano, private chef locarno, private chef bellinzona, cuoco a domicilio ticino, cena privata lugano, chef privato lugano, private dining ticino, private chef svizzera, chef a domicilio lugano, cena romantica ticino, private chef ascona, chef privato ticino prezzi, menu degustazione lugano",
   alternates: {
     canonical: "https://www.lucastable.ch/private-chef-ticino",
   },
   openGraph: {
-    title: "Private Chef a Domicilio in Ticino | Lugano, Locarno, Bellinzona — Lucas Table",
-    description: "Menu degustazione di 6 portate da CHF 100. Luca Chiarappa porta il fine dining direttamente nella tua casa in tutto il Canton Ticino.",
+    title: "Private Chef a Domicilio a Lugano e in Ticino | Lucas Table",
+    description: `Menu degustazione di 6 portate da CHF ${pricing.min}. Luca Chiarappa porta il fine dining direttamente nella tua casa in tutto il Canton Ticino.`,
     url: "https://www.lucastable.ch/private-chef-ticino",
     type: "website",
     locale: "it_CH",
   },
-};
+  twitter: {
+    card: "summary_large_image",
+    title: "Private Chef a Domicilio a Lugano e in Ticino | Lucas Table",
+    description: `Private chef e cuoco a domicilio a Lugano, Locarno, Bellinzona e in tutto il Ticino. Menu degustazione di 6 portate da CHF ${pricing.min} a persona.`,
+  },
+  };
+}
 
-function TicinoContentSection() {
+function TicinoContentSection({ pricing }: { pricing: MenuPricing }) {
   const localFaqItems = [
     {
       question: "Quanto costa un private chef a Lugano o in Ticino?",
-      answer: "I menu Lucas Table partono da CHF 100 a persona per il menu vegetariano, CHF 150 per il menu di carne e CHF 190 per il menu di pesce. Il prezzo comprende spesa degli ingredienti, preparazione di 6 portate, servizio al tavolo e riordino completo della cucina. Non ci sono costi aggiuntivi nascosti.",
+      answer: `I menu Lucas Table partono da ${pricing.sentence}. Il prezzo comprende spesa degli ingredienti, preparazione di 6 portate, servizio al tavolo e riordino completo della cucina. Non ci sono costi aggiuntivi nascosti.`,
     },
     {
       question: "Il servizio di private chef copre tutta la Svizzera italiana?",
@@ -78,7 +87,8 @@ function TicinoContentSection() {
           Il Canton Ticino è un territorio unico: la precisione e la qualità di vita svizzera si
           fondono con il calore e la tradizione gastronomica italiana. Per chi abita o trascorre le
           vacanze in questa regione e cerca un&apos;esperienza culinaria d&apos;eccellenza tra le
-          mura di casa, <strong className="font-medium text-ls-ivory">Lucas Table</strong> è la risposta naturale.
+          mura di casa, un private chef (o cuoco a domicilio) è la soluzione ideale e{" "}
+          <strong className="font-medium text-ls-ivory">Lucas Table</strong> la porta direttamente alla tua tavola.
         </p>
 
         <div className="space-y-10">
@@ -159,17 +169,22 @@ function TicinoContentSection() {
   );
 }
 
-export default function PrivateChefTicino() {
+export default async function PrivateChefTicino() {
+  const pricing = await getMenuPricing();
   const localJsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.lucastable.ch/#business",
-    "name": "Lucas Table — Private Chef a Domicilio in Ticino",
+    "@type": "Service",
+    "@id": "https://www.lucastable.ch/private-chef-ticino#service",
+    "name": "Private Chef a Domicilio in Ticino",
     "url": "https://www.lucastable.ch/private-chef-ticino",
-    "description": "Luca Chiarappa, private chef a domicilio nel Canton Ticino. Menu degustazione di 6 portate da CHF 100 a persona per cene esclusive a Lugano, Locarno, Bellinzona, Ascona e Mendrisio.",
-    "telephone": "+41762421754",
-    "email": "lucastablee@gmail.com",
-    "priceRange": "CHF 100–190",
+    "provider": { "@id": "https://www.lucastable.ch/#business" },
+    "description": `Luca Chiarappa, private chef a domicilio nel Canton Ticino. Menu degustazione di 6 portate da CHF ${pricing.min} a persona per cene esclusive a Lugano, Locarno, Bellinzona, Ascona e Mendrisio.`,
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": String(pricing.min),
+      "highPrice": String(pricing.max),
+      "priceCurrency": "CHF",
+    },
     "areaServed": {
       "@type": "AdministrativeArea",
       "name": "Canton Ticino",
@@ -222,13 +237,13 @@ export default function PrivateChefTicino() {
           titleHighlight="in Ticino"
           description="Il lusso di una cena esclusiva nel comfort di casa tua. Dal Luganese al Locarnese, porto l'eccellenza della ristorazione direttamente nella tua sala da pranzo. Tu pensa solo a goderti la serata."
         />
-        <TicinoContentSection />
+        <TicinoContentSection pricing={pricing} />
         <InfoSection />
         <ProposalsSection />
         <MenuSection />
         <ReviewsSection />
         <ServedAreasSection />
-        <FAQSection />
+        <FAQSection pricing={pricing} />
         <BookingSection />
       </main>
       <Footer />

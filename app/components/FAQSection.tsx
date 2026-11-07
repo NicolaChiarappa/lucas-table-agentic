@@ -3,16 +3,17 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import type { MenuPricing } from "@/lib/pricing";
 
 interface FaqItem {
     question: string;
     answer: string;
 }
 
-const FAQ_ITEMS: FaqItem[] = [
+const buildFaqItems = (pricing: MenuPricing): FaqItem[] => [
     {
         question: "Quanto costa un private chef a domicilio?",
-        answer: "I menu degustazione di Lucas Table partono da CHF 100 a persona per il menu vegetariano, CHF 150 per il menu di carne e CHF 190 per il menu di pesce. Il prezzo include 6 portate (dall'amuse-bouche al dessert), il servizio completo e il riordino della cucina. Le bevande sono escluse. Per eventi su misura, il prezzo viene concordato in base al numero di ospiti e alle richieste specifiche.",
+        answer: `I menu degustazione di Lucas Table partono da ${pricing.sentence}. Il prezzo include 6 portate (dall'amuse-bouche al dessert), il servizio completo e il riordino della cucina. Le bevande sono escluse. Per eventi su misura, il prezzo viene concordato in base al numero di ospiti e alle richieste specifiche.`,
     },
     {
         question: "Come funziona il servizio di private chef?",
@@ -32,7 +33,7 @@ const FAQ_ITEMS: FaqItem[] = [
     },
     {
         question: "Ci sono opzioni per vegetariani o persone con allergie?",
-        answer: "Sì. Oltre al menu vegetariano dedicato (CHF 100 a persona), ogni menu può essere adattato in base ad allergie, intolleranze o preferenze alimentari. Basta comunicarlo al momento della prenotazione.",
+        answer: `Sì. ${pricing.vegetarian !== null ? `Oltre al menu vegetariano dedicato (CHF ${pricing.vegetarian} a persona), ogni` : "Ogni"} menu può essere adattato in base ad allergie, intolleranze o preferenze alimentari. Basta comunicarlo al momento della prenotazione.`,
     },
     {
         question: "Quali occasioni sono adatte per un private chef?",
@@ -85,7 +86,8 @@ function FaqAccordionItem({ item, isOpen, onToggle }: { item: FaqItem; isOpen: b
     );
 }
 
-export function FAQSection() {
+export function FAQSection({ pricing }: { pricing: MenuPricing }) {
+    const FAQ_ITEMS = buildFaqItems(pricing);
     const reduce = useReducedMotion();
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
