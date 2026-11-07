@@ -23,7 +23,7 @@ const EXPERIENCES: Experience[] = [
         body:
             "Il lusso della semplicità condivisa: un'atmosfera intima, pensata per massimo otto ospiti, dove la qualità degli ingredienti incontra la gioia della buona compagnia. Ogni dettaglio è un gesto d'attenzione dedicato a voi, ogni piatto un'emozione da assaporare insieme. Perché i momenti più belli sono quelli vissuti intorno a una tavola che profuma di casa, ma con l'eleganza di un'esperienza d'eccellenza.",
         image: sestoSensoImg,
-        alt: "Cena privata a domicilio in Ticino: tavola conviviale elegante apparecchiata per ospiti",
+        alt: "Medaglione di carne glassato sormontato da una quenelle, con salsa scura e olio alle erbe",
     },
     {
         id: "cin-cin",
@@ -32,7 +32,7 @@ const EXPERIENCES: Experience[] = [
         body:
             "Immagina una serata dove tutto ruota intorno a voi. Abbiamo scelto di dedicarci solo a due ospiti per garantire un'attenzione assoluta e portate che sono veri capolavori di tecnica e sapore. È molto più di una cena: è un percorso riservato nell'alta cucina, dove ogni sfumatura è pensata per incantare.",
         image: cinCinImg,
-        alt: "Portata impiattata con cura da private chef per cena romantica a due a Milano",
+        alt: "Orecchiette con crostaceo, pomodoro fresco ed erba cipollina in un piatto fondo bianco",
     },
     {
         id: "su-misura",
@@ -41,7 +41,7 @@ const EXPERIENCES: Experience[] = [
         body:
             "Una serata costruita interamente intorno a voi: menu personalizzati per ogni genere di occasione e di palato, dai sapori che amate fino all'estetica di ogni piatto. Ne immaginiamo insieme i dettagli, perché diventi esattamente la sera che avete in mente.",
         image: suMisuraImg,
-        alt: "Menu su misura private chef Lugano: dettaglio di un piatto creativo e composizione su misura",
+        alt: "Nido di tagliolini con cialda di parmigiano e fiori di borragine",
     },
 ];
 

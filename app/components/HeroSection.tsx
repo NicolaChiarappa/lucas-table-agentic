@@ -45,7 +45,7 @@ export function HeroSection({
             {/* Fotografia: l'unica luce viva */}
             <Image
                 src={heroImage}
-                alt="Luca, private chef a domicilio, impiatta una portata nella sala da pranzo di una villa in Ticino"
+                alt="Luca Chiarappa, private chef, rifinisce con la pinzetta una serie di dessert impiattati in cucina"
                 fill
                 priority
                 quality={80}
