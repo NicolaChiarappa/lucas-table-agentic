@@ -72,7 +72,17 @@ export function HeroSection({
             />
 
             {/* Contenuto */}
-            <div className="relative z-10 mx-auto max-w-4xl px-5 pb-[clamp(4.5rem,3rem+8vw,8rem)] pt-32 text-center">
+            <div className="ls-hero-legible relative z-10 mx-auto max-w-4xl px-5 pb-[clamp(4.5rem,3rem+8vw,8rem)] pt-32 text-center">
+                {/* Velo morbido dietro al testo: stacca label e titolo dalla foto senza un riquadro visibile */}
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-[-10%] bottom-[8%] top-[22%] -z-10"
+                    style={{
+                        background:
+                            "radial-gradient(closest-side, rgba(7,33,26,0.62), rgba(7,33,26,0.38) 55%, transparent)",
+                        filter: "blur(18px)",
+                    }}
+                />
                 <motion.div {...rise(0.15)} className="mb-7 flex items-center justify-center gap-4">
                     <span className="ls-rule" aria-hidden="true" />
                     <span className="ls-label">{label}</span>

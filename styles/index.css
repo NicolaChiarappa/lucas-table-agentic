@@ -136,6 +136,16 @@ html {
   background: linear-gradient(90deg, transparent, var(--ls-gold), transparent);
 }
 
+/* --- Hero: leggibilità del testo sopra la fotografia --- */
+.ls-hero-legible .ls-label {
+  color: var(--ls-gold-bright, var(--ls-gold));
+  text-shadow: 0 1px 2px rgba(7, 33, 26, 0.9), 0 0 14px rgba(7, 33, 26, 0.85);
+}
+.ls-hero-legible h1,
+.ls-hero-legible p {
+  text-shadow: 0 1px 3px rgba(7, 33, 26, 0.75), 0 0 24px rgba(7, 33, 26, 0.55);
+}
+
 /* --- Numeri/etichette in piccolo maiuscoletto spaziato (label brevi) --- */
 .ls-label {
   font-family: var(--font-body), serif;
